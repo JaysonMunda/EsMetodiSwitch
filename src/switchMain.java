@@ -16,7 +16,7 @@ public class switchMain {
 		min = m[r1][0];
 		max = m[r1][0];
 		
-		for(int i=0; i<m[r1].length-1; i++) {
+		for(int i=0; i<m[r1].length; i++) {
 			if(min > m[r1][i]) {
 				min = m[r1][i];
 			}
@@ -28,7 +28,7 @@ public class switchMain {
 		min2 = v[r2][0];
 		max2 = v[r2][0];
 		
-		for(int i=0; i<v[r2].length-1; i++) {
+		for(int i=0; i<v[r2].length; i++) {
 			if(min2 > v[r2][i]) {
 				min2 = v[r2][i];
 			}
@@ -41,12 +41,46 @@ public class switchMain {
 		System.out.println("Seconda matrice: Min "+min2+" Max "+max2);
 		
 	}
+	public static void mediaRigCol(int m[][], int v[][]) {
+		Scanner sc = new Scanner(System.in);
+		int r1, r2;
+		int somma = 0, somma2 = 0;
+		int media, media2;
+		
+		System.out.println("Quale riga vuoi nella prima matrice?");
+		r1 = sc.nextInt();
+		System.out.println("Quale riga vuoi nella seconda matrice?");
+		r2 = sc.nextInt();
+		
+		for(int i=0; i<m[r1].length; i++) {
+			somma = somma + m[r1][i];
+		}
+		
+		for(int i=0; i<v[r2].length; i++) {
+			somma2 = somma2 + v[r2][i];
+		}
+		
+		media = somma / r1;
+		media2 = somma2 / r2;
+		
+		System.out.println("Media prima matrice: "+media);
+		System.out.println("Media seconda matrice: "+media2);
+	}
 	
 	public static void carVisMat(int m[][]) {
 		for(int i=0; i<m.length; i++) {
 			for(int j=0; j<m[i].length; j++) {
 				m[i][j] = (int)(Math.random() * 50);
 			}
+		}
+	}
+	
+	public static void stampaMatrice(int m[][]) {
+		for (int v[] : m) {
+			for (int e : v) {
+				System.out.print(e+" ");
+			}
+			System.out.println();
 		}
 	}
 
@@ -66,6 +100,11 @@ public class switchMain {
 		
 		carVisMat(matrix1);
 		carVisMat(matrix2);
+		System.out.println();
+		stampaMatrice(matrix1);
+		System.out.println();
+		stampaMatrice(matrix2);
+		System.out.println();
 		
 		do {
 			System.out.println("Inserisci un numero tra 1 e 4");
@@ -77,6 +116,7 @@ public class switchMain {
 			calcMinMax(matrix1, matrix2);
 			break;
 		case 2:
+			mediaRigCol(matrix1, matrix2);
 			break;
 		case 3:
 			break;
