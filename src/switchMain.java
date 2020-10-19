@@ -44,8 +44,8 @@ public class switchMain {
 	public static void mediaRigCol(int m[][], int v[][]) {
 		Scanner sc = new Scanner(System.in);
 		int r1, r2;
-		int somma = 0, somma2 = 0;
-		int media, media2;
+		float somma = 0, somma2 = 0;
+		float media, media2;
 		
 		System.out.println("Quale riga vuoi nella prima matrice?");
 		r1 = sc.nextInt();
@@ -60,9 +60,11 @@ public class switchMain {
 			somma2 = somma2 + v[r2][i];
 		}
 		
-		media = somma / r1;
-		media2 = somma2 / r2;
+		media = somma / m[r1].length;
+		media2 = somma2 / v[r2].length;
 		
+		System.out.println(somma);
+		System.out.println(somma2);
 		System.out.println("Media prima matrice: "+media);
 		System.out.println("Media seconda matrice: "+media2);
 	}
