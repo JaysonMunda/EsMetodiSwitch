@@ -6,6 +6,7 @@ public class switchMain {
 		Scanner sc = new Scanner(System.in);
 		int r1, r2;
 		int min, max;
+		int min2, max2;
 		
 		System.out.println("Quale riga vuoi nella prima matrice?");
 		r1 = sc.nextInt();
@@ -13,7 +14,7 @@ public class switchMain {
 		r2 = sc.nextInt();
 		
 		min = m[r1][0];
-		max = m[r2][0];
+		max = m[r1][0];
 		
 		for(int i=0; i<m[r1].length-1; i++) {
 			if(min > m[r1][i]) {
@@ -24,8 +25,21 @@ public class switchMain {
 			}
 		}
 		
-		System.out.println(min);
-		System.out.println(max);
+		min2 = v[r2][0];
+		max2 = v[r2][0];
+		
+		for(int i=0; i<v[r2].length-1; i++) {
+			if(min2 > v[r2][i]) {
+				min2 = v[r2][i];
+			}
+			if(max2 < v[r2][i]) {
+				max2 = v[r2][i];
+			}
+		}
+		
+		System.out.println("Prima matrice: Min "+min+" Max "+max);
+		System.out.println("Seconda matrice: Min "+min2+" Max "+max2);
+		
 	}
 	
 	public static void carVisMat(int m[][]) {
