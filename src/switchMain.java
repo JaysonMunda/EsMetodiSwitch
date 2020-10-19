@@ -5,24 +5,25 @@ public class switchMain {
 	public static void calcMinMax(int m[][], int v[][]) {
 		Scanner sc = new Scanner(System.in);
 		int r1, r2;
-		int min=0, max=0;
+		int min, max;
 		
 		System.out.println("Quale riga vuoi nella prima matrice?");
 		r1 = sc.nextInt();
 		System.out.println("Quale riga vuoi nella seconda matrice?");
 		r2 = sc.nextInt();
 		
-		m = new int[r1][];
-		v = new int[r2][];
+		min = m[r1][0];
+		max = m[r2][0];
 		
-		for(int i=0; i<m[r1].length; i++) {
-			if(m[r1][i] < min) {
+		for(int i=0; i<m[r1].length-1; i++) {
+			if(min > m[r1][i]) {
 				min = m[r1][i];
 			}
-			if(m[r1][i] > max) {
+			if(max < m[r1][i]) {
 				max = m[r1][i];
 			}
 		}
+		
 		System.out.println(min);
 		System.out.println(max);
 	}
